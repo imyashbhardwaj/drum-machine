@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Drum Machine</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  <meta charset="UTF-8">
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+
+  
+</head>
+
+<body><center>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+	<h1><u>Drum Machine</u></h1>
+	<div class=row id="drum-machine">
+		<div class=column>
+		<button class="drum-pad" id=Qbutton>Q
+		<audio class='clip' id=Q src='https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'></audio>
+		</button>
+		<button class=drum-pad id=Wbutton>W
+		<audio class='clip' id=W src='https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'></audio>
+		</button>
+		<button class=drum-pad id=Ebutton>E
+			<audio class='clip' id=E src='https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'></audio>
+		</button>
+		<br>
+		<button class=drum-pad id=Abutton>A
+		<audio class='clip' id=A src='https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'></audio>
+	</button>
+		<button class=drum-pad id=Sbutton>S
+			<audio class='clip' id=S src='https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'></audio>
+		</button>
+		<button class=drum-pad id=Dbutton>D
+		<audio class='clip' id=D src='https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'></audio>
+	</button>
+		<br>
+		<button class=drum-pad id=Zbutton>Z
+			<audio class='clip' id=Z src='https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'></audio>
+		</button>
+		<button class=drum-pad id=Xbutton>X
+			<audio class='clip' id=X src='https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'></audio>
+		</button>
+		<button class=drum-pad id=Cbutton>C
+			<audio class='clip' id=C src='https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'></audio>
+		</button>
+	</div>
+	<div class=column>
+		<div id=display>
+		</div>
+
+
+	</div>
+</center>
+ <script src=https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js></script>
+</body>
+<style type="text/css">
+	#drum-machine{
+		border: 3px solid orange;
+		margin-left:100px;
+		margin-right: 100px; 
+		margin-top:50px;
+	}
+	#display{
+		height: 50px;
+		border: 2px solid green;
+  		width: 150px;
+  		background-color: rgb(240,240,240); 
+  		margin-top: 60px;
+  		padding-top:10px; 
+	}
+	.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+button{
+	height:80px;
+	width: 80px;
+}
+body{
+	background-color: rgb(250,250,230)
+}
+
+</style>
+<script>
+
+
+$("#Qbutton").click(()=>{
+	var x=document.getElementById("Q")
+	x.play()
+	document.getElementById("display").innerHTML= "Heater-1";
+});
+$("#Wbutton").click(()=>{
+	var x=document.getElementById("W")
+	x.play()
+	document.getElementById("display").innerHTML="Heater-2"
+});
+$("#Ebutton").click(()=>{
+	var x=document.getElementById("E")
+	x.play()
+	document.getElementById("display").innerHTML="Heater-3"
+});
+$("#Abutton").click(()=>{
+	var x=document.getElementById("A")
+	x.play()
+	document.getElementById("display").innerHTML="Heater-4"
+});
+$("#Sbutton").click(()=>{
+	var x=document.getElementById("S")
+	x.play()
+	document.getElementById("display").innerHTML="Clap"
+});
+$("#Dbutton").click(()=>{
+	var x=document.getElementById("D")
+	x.play()
+	document.getElementById("display").innerHTML="Open HH"
+});
+$("#Zbutton").click(()=>{
+	var x=document.getElementById("Z")
+	x.play()
+	document.getElementById("display").innerHTML="Kick_n_Hat"
+});
+$("#Xbutton").click(()=>{
+	var x=document.getElementById("X")
+	x.play()
+	document.getElementById("display").innerHTML="Kick"
+});
+$("#Cbutton").click(()=>{
+	var x=document.getElementById("C")
+	document.getElementById("display").innerHTML="Closed HH"
+	x.play()
+});
+$(document).bind('keypress', function(e) {
+	var k=e.which||e.keyCode
+	console.log("key pressed "+k)
+	switch(k){
+		case 113:
+		case 81:
+			var x=document.getElementById("Q")
+			x.play()
+			document.getElementById("display").innerHTML= "Heater-1";
+			break
+		case 119:
+		case 87:
+			var x=document.getElementById("W")
+			x.play()
+			document.getElementById("display").innerHTML="Heater-2"
+			break
+		case 101:
+		case 69:
+			var x=document.getElementById("E")
+			x.play()
+			document.getElementById("display").innerHTML="Heater-3"
+			break
+		case 97:
+		case 65:
+			var x=document.getElementById("A")
+			x.play()
+			document.getElementById("display").innerHTML="Heater-4"
+			break
+		case 115:
+		case 83:
+			var x=document.getElementById("S")
+			x.play()
+			document.getElementById("display").innerHTML="Clap"
+			break
+		case 100:
+		case 68:
+			var x=document.getElementById("D")
+			x.play()
+			document.getElementById("display").innerHTML="Open HH"
+			break
+		case 122:
+		case 90:
+			var x=document.getElementById("Z")
+			x.play()
+			document.getElementById("display").innerHTML="Kick_n_Hat"
+			break
+		case 120:
+		case 88:
+			var x=document.getElementById("X")
+			x.play()
+			document.getElementById("display").innerHTML="Kick"
+			break
+		case 99:
+		case 67:
+			var x=document.getElementById("C") 
+			x.play()
+			document.getElementById("display").innerHTML="Closed HH"
+			break
+		
+		default:		
+	}
+});
+
+
+</script>
+<!-- partial -->
+  
+</body>
+</html>
